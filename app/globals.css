@@ -95,6 +95,15 @@ body {
   .flex-between {
     @apply flex justify-between items-center;
   }
+  .flex-start {
+    @apply  justify-start items-start;
+  }
+   .flex-around {
+    @apply flex justify-around items-center;
+  }
+  .flex-sm{
+    @apply flex-col justify-center items-center
+  }
 
   /* TYPOGRAPHY */
   /* 64 */

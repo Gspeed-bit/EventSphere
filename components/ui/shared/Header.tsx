@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Button } from "../button"; 
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
+
+
 const Header = () => {
   return (
     <div className="border-b w-full">
@@ -34,7 +36,6 @@ const Header = () => {
           {/* Display custom Button component when signed out */}
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
-              {" "}
               {/* Custom Button for login */}
               {/* Link to sign-in page */}
               <Link href="/sign-in">Login</Link>

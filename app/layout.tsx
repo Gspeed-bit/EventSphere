@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import React from "react";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
+}: {
+  children: React.ReactNode
+}){
+  return ( 
     <ClerkProvider>
       <html lang="en">
-        <SpeedInsights/>
-        <body className={quicksand.className}>{children}</body>
+        <body className={quicksand.variable}>{children}</body>
       </html>
     </ClerkProvider>
-  );
+ 
+  )
 }

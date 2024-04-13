@@ -1,33 +1,31 @@
-"use client"
-import { headerLinks } from "@/constant"; // Assuming headerLinks is correctly imported
+"use client";
+
+
+import { headerLinks } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 const NavItems = () => {
-const pathname = usePathname();
+  const pathname = usePathname();
 
-return (
-  <div>
-      <ul className=" w-full md:flex-between md:flex-row md:space-y-0 gap-4 flex-row pt-3 space-y-5">
-        {headerLinks.map((link) => {
-          const { route, label } = link;
-          const isActive = pathname === route ;
-          return (
-            <li key={label}>
-              <Link
-                href={route}
-                className={`${isActive && "text-primary-500"} flex-center p-medium-16 whitespace-nowrap`
-                 
-                }
-              >
-                {label}
-              </Link>{" "}
-              {/* Changed ref to href for route */}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+  return (
+    <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
+      {headerLinks.map((link) => {
+        const isActive = pathname === link.route;
+
+        return (
+          <li
+            key={link.route}
+            className={`${
+              isActive && "text-primary-500"
+            } flex-center p-medium-16 whitespace-nowrap`}
+          >
+            <Link href={link.route}>{link.label}</Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

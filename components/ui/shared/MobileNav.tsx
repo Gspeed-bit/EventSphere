@@ -8,24 +8,24 @@ const MobileNav = () => {
   return (
     <nav className="md:hidden">
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger className="align-middle">
           <Image
             src="/assets/icons/menu.svg"
-            alt="menu logo"
-            width={30}
-            height={30}
+            alt="menu"
+            width={24}
+            height={24}
+            className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent className="bg-white">
+        <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
           <Image
             src="/assets/images/logo.svg"
-            alt="menu logo"
+            alt="logo"
             width={128}
-            height={40}
-            className="pb-3"
+            height={38}
           />
-          <Separator className="border-b border-grey-50 " />
-          <NavItems/>
+          <Separator className="border border-gray-50" />
+          <NavItems />
         </SheetContent>
       </Sheet>
     </nav>
