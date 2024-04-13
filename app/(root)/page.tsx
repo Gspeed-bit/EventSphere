@@ -1,24 +1,46 @@
 import { Button } from "@/components/ui/button";
+import CategoryFilter from "@/components/ui/shared/CategoryFilter";
+import Search from "@/components/ui/shared/Search";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className=" bg-dotted-pattern bg-grey-50 px-5 py-5 ">
-      <section className="wrapper grid grid-cols-1 md:grid-cols-2">
-        <div className="flex-start space-y-7 md:space-y-9">
-          <h1 className="h2-bold md:h1-bold">
-            Empowering Moments: Uniting Communities, One Event at a Time!
-          </h1>
-          <p className="p-regular-18 md:p-regular-20">
-            Discover invaluable insights and guidance from over 1020 mentors
-            across renowned companies, all within our vibrant global community.
-          </p>
-          <Button size="lg" asChild className="button w-full sm:w-fit">
-            <Link href="#events">Explore Now </Link>
-          </Button>
+    <>
+      <div className=" bg-dotted-pattern bg-grey-50 px-5 py-5 ">
+        <section className="wrapper grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="flex-start space-y-7 md:space-y-9">
+            <h1 className="h2-bold md:h1-bold">
+              Empowering Moments: Uniting Communities, One Event at a Time!
+            </h1>
+            <p className="p-regular-18 md:p-regular-20">
+              Discover invaluable insights and guidance from over 1020 mentors
+              across renowned companies, all within our vibrant global
+              community.
+            </p>
+            <Button size="lg" asChild className="button w-full sm:w-fit">
+              <Link href="#events">Explore Now </Link>
+            </Button>
+          </div>
+          <Image
+            src="/assets/images/hero.png"
+            alt="Home Page Illustration"
+            width={1000}
+            height={1000}
+            className="object-cover rounded-xl md:rounded-2xl max-h-[70vh] object-center 2xl:max-h-[100vh] "
+          />
+        </section>
+      </div>
+      <section id="events" className="wrapper">
+        <h1 className=" p-bold-20 md:p-bold-24">
+          Trusted by <br /> Thousands of Events Worldwide
+        </h1>
+        <div className="flex-between w-full flex gap-8 flex-sm md:flex-row ">
+          <Search />
+          <CategoryFilter />
         </div>
       </section>
-    </div>
+    </>
   );
 }
