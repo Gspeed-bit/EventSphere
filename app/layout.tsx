@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <SpeedInsights/>
         <body className={quicksand.className}>{children}</body>
       </html>
     </ClerkProvider>
