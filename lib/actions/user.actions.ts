@@ -5,10 +5,11 @@ import { revalidatePath } from "next/cache";
 import { connectToDatabase } from "@/lib/database";
 
 import { handleError } from "@/lib/utils";
-
 import User from "../database/models/user.model";
 import Order from "../database/models/order.model";
-import Event from "../database/models/user.model";
+import Event from "../database/models/event.model";
+
+
 
 export const createUser = async (user: CreateUserParams) => {
   // here we want to connect to the db so we can create a user
