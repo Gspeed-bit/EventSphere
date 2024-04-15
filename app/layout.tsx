@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import React from "react";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -19,15 +18,16 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}){
-  return ( 
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+
     <ClerkProvider>
       <html lang="en">
         <body className={quicksand.variable}>{children}</body>
       </html>
     </ClerkProvider>
  
-  )
+  );
 }
