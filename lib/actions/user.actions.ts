@@ -6,9 +6,9 @@ import { connectToDatabase } from "@/lib/database";
 
 import { handleError } from "@/lib/utils";
 
-import User from "../models/user.model";
-import Order from "../models/order.model";
-import Event from "../models/user.model";
+import User from "../database/models/user.model";
+import Order from "../database/models/order.model";
+import Event from "../database/models/user.model";
 
 export const createUser = async (user: CreateUserParams) => {
   // here we want to connect to the db so we can create a user
