@@ -22,7 +22,7 @@ export const connectToDatabase = async () => {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
-      dbName: "event Sphere", // Name of the MongoDB database
+      dbName: "eventSphere", // Name of the MongoDB database
       bufferCommands: false, // Disable buffering of commands
     });
 
