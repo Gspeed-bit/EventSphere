@@ -5,10 +5,10 @@ export interface ICategory extends Document {
   name: string;
 }
 
-const categorySchema = new Schema({
+const CategorySchema = new Schema({
   name: { type: String, required: true, unique: true },
 });
 
-const Event = models.Category || model("category", categorySchema);
+const Category = models.Category || model("Category", CategorySchema);
 
-export default Event;
+export default Category;
