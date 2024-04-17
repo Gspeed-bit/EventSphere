@@ -293,7 +293,7 @@ body {
   border: none;
   border-radius: 0.5em;
   color: #DEDEDE;
-  box-shadow: 0.5em 0.5em 0.5em #545454;
+  box-shadow: 0.5em 0.5em 0.5em #DEDEDE;
 }
 
 .button::before {
