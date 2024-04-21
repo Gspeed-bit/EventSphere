@@ -27,10 +27,10 @@ const EventSchema = new Schema({
   price: { type: String },
   isFree: { type: Boolean, default: false },
   url: { type: String },
-  category: { type: Schema.Types.ObjectId, ref: "Category" },
-  organizer: { type: Schema.Types.ObjectId, ref: "User" },
+  category: { type: Schema.Types.ObjectId, ref: "categories" },
+  organizer: { type: Schema.Types.ObjectId, ref: "users" },
 });
 
-const Event = models.Event || model("Event", EventSchema);
+const Event = models.events || model("events", EventSchema);
 
 export default Event;

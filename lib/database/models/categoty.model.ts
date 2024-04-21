@@ -9,6 +9,6 @@ const CategorySchema = new Schema({
   name: { type: String, required: true, unique: true },
 });
 
-const Category = models.Category || model("Category", CategorySchema);
+const Category = models.categories || model("categories", CategorySchema);
 
 export default Category;

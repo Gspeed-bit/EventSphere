@@ -1,16 +1,14 @@
+// Importing required modules and components
 "use client";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
-
 import { Input } from "@/components/ui/input";
 import { eventDefaultValues } from "@/constant";
 import { eventFormSchema } from "@/lib/validator";
@@ -25,30 +23,64 @@ import FileUploader from "./FileUploader";
 import { useState } from "react";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
+import { useUploadThing } from "@/lib/uploadthing";
+import { useRouter } from "next/navigation";
+import { createEvent } from "@/lib/actions/event.actions";
+import { IEvent } from "@/lib/database/models/event.model";
 
+// Define type for EventFormProps
 type EventFormProps = {
   userId: string;
-  type: "create" | "update";
+  type: "Create" | "Update";
+  event?: IEvent;
+  eventId?: string;
 };
 
 const EventForm = ({ userId, type }: EventFormProps) => {
-  // this useState is created to handle the file uploader
+  // State for file uploader
   const [files, setFiles] = useState<File[]>([]);
-  // we need to set the values of the form to default
+  // Initial form values
   const initialValues = eventDefaultValues;
 
-  // 1. Define your form.
-  //eventFormSchema is  a Zod schema that defines the form validation
+  const router = useRouter();
+
+  const { startUpload } = useUploadThing("imageUploader");
+  // Initialize form with useForm and zodResolver for validation
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
     defaultValues: initialValues,
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof eventFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  // Handle form submission
+  async function onSubmit(values: z.infer<typeof eventFormSchema>) {
+    let uploadedImageUrl = values.imageUrl;
+
+    if (files.length > 0) {
+      const uploadedImages = await startUpload(files);
+
+      if (!uploadedImages) {
+        return;
+      }
+
+      uploadedImageUrl = uploadedImages[0].url;
+    }
+
+    if (type === "Create") {
+      try {
+        const newEvent = await createEvent({
+          event: { ...values, imageUrl: uploadedImageUrl },
+          userId,
+          path: "/profile",
+        });
+
+        if(newEvent) {
+          form.reset();
+          router.push(`/events/${newEvent._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 
   return (
@@ -57,7 +89,9 @@ const EventForm = ({ userId, type }: EventFormProps) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-5 "
       >
+        {/* Event Title and Category fields */}
         <div className="flex flex-col gap-5 md:flex-row">
+          {/* Title field */}
           <FormField
             control={form.control}
             name="title"
@@ -65,7 +99,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Event Title "
+                    placeholder="Event Title"
                     {...field}
                     className="input-field"
                   />
@@ -74,6 +108,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
               </FormItem>
             )}
           />
+          {/* Category dropdown */}
           <FormField
             control={form.control}
             name="categoryId"
@@ -90,12 +125,15 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
+
+        {/* Description and Image fields */}
         <div className="flex flex-col gap-5 md:flex-row">
+          {/* Description field */}
           <FormField
             control={form.control}
             name="description"
             render={({ field }) => (
-              <FormItem className="w-full ">
+              <FormItem className="w-full">
                 <FormControl className="h-72">
                   <Textarea
                     placeholder="Description"
@@ -107,11 +145,12 @@ const EventForm = ({ userId, type }: EventFormProps) => {
               </FormItem>
             )}
           />
+          {/* Image uploader */}
           <FormField
             control={form.control}
             name="imageUrl"
             render={({ field }) => (
-              <FormItem className="w-full ">
+              <FormItem className="w-full">
                 <FormControl className="h-72">
                   <FileUploader
                     onFieldChange={field.onChange}
@@ -124,12 +163,14 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
+
+        {/* Location field */}
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="location"
             render={({ field }) => (
-              <FormItem className="w-full ">
+              <FormItem className="w-full">
                 <FormControl className="h-72">
                   <div className="flex-center input-field">
                     <Image
@@ -139,7 +180,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                       alt="location icon"
                     />
                     <Input
-                      placeholder="Event location or Online "
+                      placeholder="Event location or Online"
                       {...field}
                       className="input-field"
                     />
@@ -150,7 +191,10 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
+
+        {/* Start and End Date fields */}
         <div className="flex flex-col gap-5 md:flex-row">
+          {/* Start Date */}
           <FormField
             control={form.control}
             name="startDateTime"
@@ -174,7 +218,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                       showTimeSelect
                       timeInputLabel="Time:"
                       dateFormat="MM/dd/yyyy h:mm aa"
-                      wrapperClassName="datePicker "
+                      wrapperClassName="datePicker"
                     />
                   </div>
                 </FormControl>
@@ -182,6 +226,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
               </FormItem>
             )}
           />
+          {/* End Date */}
           <FormField
             control={form.control}
             name="endDateTime"
@@ -205,7 +250,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                       showTimeSelect
                       timeInputLabel="Time:"
                       dateFormat="MM/dd/yyyy h:mm aa"
-                      wrapperClassName="datePicker "
+                      wrapperClassName="datePicker"
                     />
                   </div>
                 </FormControl>
@@ -214,7 +259,10 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
+
+        {/* Price and URL fields */}
         <div className="flex flex-col gap-5 md:flex-row">
+          {/* Price field */}
           <FormField
             control={form.control}
             name="price"
@@ -231,17 +279,18 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                     />
                     <Input
                       type="number"
-                      placeholder="price "
+                      placeholder="Price"
                       {...field}
                       className="input-field"
                     />
+                    {/* Free Ticket checkbox */}
                     <FormField
                       control={form.control}
                       name="isFree"
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <div className=" items-center h-[54px] w-40 flex-around py-2 ">
+                            <div className="items-center h-[54px] w-40 flex-around py-2">
                               <label
                                 htmlFor="terms1"
                                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -266,6 +315,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
               </FormItem>
             )}
           />
+          {/* URL field */}
           <FormField
             control={form.control}
             name="url"
@@ -292,22 +342,27 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
+
+        {/* Submit Button */}
         <Button
           type="submit"
           size="lg"
           disabled={form.formState.isSubmitting}
-          className="button capitalize "
+          className="button capitalize"
         >
+          {/* Conditional rendering for button text */}
           {form.formState.isSubmitting ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> "Submitting..."`
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Submitting...
             </>
           ) : (
-            `  ${type} event`
+            `${type} Event`
           )}
         </Button>
       </form>
     </Form>
   );
 };
+
 export default EventForm;
