@@ -27,13 +27,16 @@ module.exports = withUt({
         },
         coral: {
           500: "#15BF59",
+          100: "#d8f0e5",
         },
 
         grey: {
           600: "#545454", // Subdued - color name in figma
           500: "#757575",
           400: "#AFAFAF", // Disabled - color name in figma
-          50: "#F6F6F6", // White Grey - color name in figma
+          100: "#dedede",
+
+          50: "#fbfbfb", // White Grey - color name in figma
         },
         black: "#000000",
         white: "#FFFFFF",
@@ -67,7 +70,7 @@ module.exports = withUt({
         },
       },
       fontFamily: {
-        poppins: ["var(--font-poppins)"],
+        poppins: ["var(--font-quicksand)"],
       },
       backgroundImage: {
         "dotted-pattern": "url('/assets/images/dotted-pattern.png')",

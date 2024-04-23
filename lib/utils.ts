@@ -12,6 +12,7 @@ export function cn(...inputs: ClassValue[]) {
 export const formatDateTime = (dateString: Date) => {
   const dateTimeOptions: Intl.DateTimeFormatOptions = {
     weekday: "short", // abbreviated weekday name (e.g., 'Mon')
+   
     month: "short", // abbreviated month name (e.g., 'Oct')
     day: "numeric", // numeric day of the month (e.g., '25')
     hour: "numeric", // numeric hour (e.g., '8')
@@ -46,13 +47,15 @@ export const formatDateTime = (dateString: Date) => {
     "en-US",
     timeOptions
   );
-
+  
   return {
     dateTime: formattedDateTime,
     dateOnly: formattedDate,
     timeOnly: formattedTime,
   };
 };
+
+
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
