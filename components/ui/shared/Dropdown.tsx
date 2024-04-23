@@ -38,6 +38,7 @@ const Dropdown = ({ onChangeHandler, value }: DropDownProps) => {
   const handleAddCategory = () => {
     // Create a new category using the provided name
     createCategory({
+      //.trim() was used to remove white space  at the beginning and end of the input field
       categoryName: newCategory.trim(),
     }).then((category) => {
       // Update the categories state with the new category

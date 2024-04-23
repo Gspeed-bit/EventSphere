@@ -87,7 +87,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-5 "
+        className="flex flex-col gap-5 bg-dotted-pattern bg-cover  "
       >
         {/* Event Title and Category fields */}
         <div className="flex flex-col gap-5 md:flex-row">
