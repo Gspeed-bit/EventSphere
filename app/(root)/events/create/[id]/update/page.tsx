@@ -13,7 +13,7 @@ const updateEvent = () => {
         </div>
       </section>
       <div className="wrapper">
-        <EventForm userId={userId} type="update" />
+        <EventForm userId={userId} type="Update" />
       </div>
     </>
   );
