@@ -102,13 +102,16 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
               </p>
               <Link
                 href={url}
-                className=" text-wrap p-regular-14 text-justify underline text-primary-100 hover:text-primary"
+                className=" text-wrap p-regular-14 text-justify underline text-primary hover:text-primary-100"
               >
                 https://meetup.angular.love/angularspringcamp/
               </Link>
             </div>
           </div>
         </div>
+            <div className="m-3 p-3">
+              <h1 className="p-bold-24 my-3 capitalize">Related Event</h1>
+            </div>
       </div>
     </section>
   );
