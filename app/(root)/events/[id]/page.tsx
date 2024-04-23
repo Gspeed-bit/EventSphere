@@ -2,6 +2,7 @@ import { getEventById } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 
 const EventDetails = async ({ params: { id } }: SearchParamProps) => {
   const event = await getEventById(id);
@@ -47,8 +48,8 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
                 </p>
               </div>
               {/* Category Name */}
-              <div className=" bg-grey-100 max-w-fit rounded-full my-3 p-2">
-                <p className="text-grey-500 p-regular-16 capitalize">
+              <div className=" bg-grey-100 max-w-fit rounded-xl my-3 p-2">
+                <p className="text-grey-500 p-regular-16 capitalize px-2">
                   {category.name}
                 </p>
               </div>
@@ -95,10 +96,16 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
               </p>
             </div>
             {/* Description */}
-            <div className="flex items-center space-x-3 ">
-              <p className=" p-medium-12  md:p-medium-14 xl:p-medium-16  text-justify">
+            <div className="">
+              <p className=" p-medium-12 pb-3 md:p-medium-14 xl:p-medium-16  text-justify">
                 {description}
               </p>
+              <Link
+                href={url}
+                className=" text-wrap p-regular-14 text-justify underline text-primary-100 hover:text-primary"
+              >
+                https://meetup.angular.love/angularspringcamp/
+              </Link>
             </div>
           </div>
         </div>
