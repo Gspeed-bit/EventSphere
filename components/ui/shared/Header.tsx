@@ -22,22 +22,19 @@ const Header = () => {
           />
         </Link>
         <SignedIn>
-         <nav className="md:flex-between hidden w-full max-w-xs">
-          <NavItems/>
-         </nav>
+          <nav className="md:flex-between hidden w-full max-w-xs">
+            <NavItems />
+          </nav>
         </SignedIn>
 
         <div className="flex gap-3 ">
           <SignedIn>
-            <UserButton afterSignOutUrl="/" />{" "}
-            <MobileNav/>
+            <UserButton afterSignOutUrl="/" /> <MobileNav />
             {/* UserButton with sign-out URL */}
           </SignedIn>
           {/* Display custom Button component when signed out */}
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
-              {/* Custom Button for login */}
-              {/* Link to sign-in page */}
               <Link href="/sign-in">Login</Link>
             </Button>
           </SignedOut>
