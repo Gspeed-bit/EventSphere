@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { getEventById } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
@@ -61,6 +62,10 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
                 <span className="capitalize text-primary p-medium-14">{`${organizer.firstName} | ${organizer.lastName}`}</span>
               </p>
             </div>
+            {/* Buy Ticket Button */}
+            <div className="">
+              <Button className=" my-3 rounded-full">Buy Ticket</Button>
+            </div>
             {/* Date and Time */}
             <div className="flex items-center space-x-3 ">
               <Image
@@ -102,16 +107,16 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
               </p>
               <Link
                 href={url}
-                className=" text-wrap p-regular-14 text-justify underline text-primary hover:text-primary-100"
+                className=" text-wrap p-regular-14 text-justify underline text-primary hover:text-primary-100 max-w-md block overflow-hidden overflow-ellipsis whitespace-nowrap "
               >
-                https://meetup.angular.love/angularspringcamp/
+                {url}
               </Link>
             </div>
           </div>
         </div>
-            <div className="m-3 p-3">
-              <h1 className="p-bold-24 my-3 capitalize">Related Event</h1>
-            </div>
+        <div className="m-3 p-3">
+          <h1 className="p-bold-24 my-3 capitalize">Related Event</h1>
+        </div>
       </div>
     </section>
   );
