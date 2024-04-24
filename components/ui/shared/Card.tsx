@@ -44,7 +44,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
               <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
             </p>
             {/* Title */}
-            <h1 className="p-medium-14 pb-3">{event.title}</h1>
+            <h1 className="p-medium-14 pb-3 capitalize">{event.title}</h1>
             {/* Organizer Name */}
             <p className="capitalize text-primary p-medium-12 py-2  ">
               {event.organizer.firstName} | {event.organizer.lastName}

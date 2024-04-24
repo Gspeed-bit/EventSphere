@@ -35,7 +35,7 @@ const Collection = ({
               const hasOrderLink = collectionType === "Event_Organized";
               const hidePrice = collectionType === "My_Tickets";
               return (
-                <li className=" ">
+                <li key="event._id" className=" ">
                   <Card
                     event={event}
                     hasOrderLink={hasOrderLink}
