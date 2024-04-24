@@ -17,14 +17,14 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
         className=" flex flex-grow bg-cover bg-center bg-primary-50 min-h-[150px] md:min-h-[200px]"
       />
       <Link href={`/events/${event._id}`}>
-        <section className="flex justify-start">
+        <section className="flex justify-start text-start px-2  ">
           <div className="p-1 m-1 space-y-1 ">
             <div className="flex space-x-3">
               {/* pricing */}
               <div className=" bg-coral-100 w-12 rounded-xl my-3 p-2">
                 <p
                   className="text-coral-500  
-                  p-medium-12"
+                  p-medium-12 text-center"
                 >
                   {event.isFree ? "Free" : `€${event.price}`}
                 </p>
@@ -36,19 +36,17 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
                 </p>
               </div>
             </div>
-            {/* Title */}
-            <h1 className=" ">{event.title}</h1>
 
             {/* Date and Time */}
-            <div className=" ">
-              <p className="space-x-1 ">
-                <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
-                {`,`}
-                <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
-              </p>
-            </div>
+            <p className="space-x-1 p-medium-12 text-grey-500 ">
+              <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
+              {`,`}
+              <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
+            </p>
+            {/* Title */}
+            <h1 className="p-medium-14 pb-3">{event.title}</h1>
             {/* Organizer Name */}
-            <p className="capitalize text-primary ">
+            <p className="capitalize text-primary p-medium-12 py-2  ">
               {event.organizer.firstName} | {event.organizer.lastName}
             </p>
           </div>
