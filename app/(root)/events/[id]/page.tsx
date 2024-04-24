@@ -49,8 +49,8 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
                 </p>
               </div>
               {/* Category Name */}
-              <div className=" bg-grey-100 max-w-fit rounded-xl my-3 p-2">
-                <p className="text-grey-500 p-regular-16 capitalize px-2">
+              <div className=" bg-primary-50 max-w-fit rounded-xl my-3 p-2">
+                <p className="text-primary-600 p-regular-16 capitalize px-2">
                   {category.name}
                 </p>
               </div>
@@ -107,7 +107,7 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
               </p>
               <Link
                 href={url}
-                className=" text-wrap p-regular-14 text-justify underline text-primary hover:text-primary-100 max-w-md block overflow-hidden overflow-ellipsis whitespace-nowrap "
+                className=" text-wrap p-regular-14 text-justify underline text-bluey-500 hover:text-bluey-100 max-w-md block overflow-hidden overflow-ellipsis whitespace-nowrap "
               >
                 {url}
               </Link>

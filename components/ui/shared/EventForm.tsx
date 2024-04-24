@@ -87,7 +87,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-5 bg-dotted-pattern bg-cover  "
+        className="flex flex-col gap-5 bg-dotted-pattern bg-cover text-primary-500 "
       >
         {/* Event Title and Category fields */}
         <div className="flex flex-col gap-5 md:flex-row">
@@ -332,8 +332,8 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                     />
                     <Input
                       placeholder="URL"
+                      className="input-field "
                       {...field}
-                      className="input-field"
                     />
                   </div>
                 </FormControl>

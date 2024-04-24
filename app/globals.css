@@ -288,26 +288,14 @@ body {
   position: relative;
   font-size: 1.2em;
   padding: 0.7em 1.4em;
-  background-color: #624cf5;
+  background-color: #b37300;
   text-decoration: none;
   border: none;
   border-radius: 0.5em;
-  color: #DEDEDE;
-  box-shadow: 0.5em 0.5em 0.5em #DEDEDE;
+  color: white;
+  box-shadow: 0.2em 0.2em 0.2em #e69500;
 }
 
-.button::before {
-  position: absolute;
-  content: '';
-  height: 0;
-  width: 0;
-  top: 0;
-  left: 0;
-  background: linear-gradient(135deg, #fff 0%, #fff 50%, #624cf5 50%, #624cf5 60%);
-  border-radius: 0 0 0.5em 0;
-  box-shadow: 0.2em 0.2em 0.2em #624cf5;
-  transition: 0.3s;
-}
 
 .button:hover::before {
   width: 1.6em;
@@ -315,6 +303,6 @@ body {
 }
 
 .button:active {
-  box-shadow: 0.2em 0.2em 0.3em #624cf5;
+  box-shadow: 0.2em 0.2em 0.3em #ffae1a;
   transform: translate(0.1em, 0.1em);
 }

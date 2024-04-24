@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className=" bg-dotted-pattern bg-grey-50 px-5 py-5 ">
+      <div className=" bg-dotted-pattern bg-primary-50 px-5 py-5 ">
         <section className="wrapper grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="flex-start space-y-7 md:space-y-9">
             <h1 className="h2-bold md:h1-bold">

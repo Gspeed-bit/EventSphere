@@ -20,19 +20,29 @@ module.exports = withUt({
     extend: {
       colors: {
         primary: {
-          500: "#624CF5",
-          100: "#b3b3ff",
-          50: " #F6F8FD",
-          DEFAULT: "#624CF5",
+          800: "#332100",
+          700: "#664200",
+          600: "#996300",
+          500: "#cc8400",
+          400: "#e69500",
+          300: "#ffa500",
+          200: "#ffae1a",
+          100: "#ffb733",
+          50: " #ffdb99",
+          DEFAULT: "#b37300",
           foreground: "hsl(var(--primary-foreground))",
         },
         coral: {
           500: "#15BF59",
           100: "#d8f0e5",
         },
+        bluey: {
+          500: "#3a5de9",
+          100: "#9daef4",
+        },
 
         grey: {
-          600: "#545454", // Subdued - color name in figma
+          600: "#4B3200", // Subdued - color name in figma
           500: "#757575",
           400: "#AFAFAF", // Disabled - color name in figma
           100: "#dedede",
