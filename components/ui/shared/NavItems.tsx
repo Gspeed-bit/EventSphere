@@ -1,12 +1,12 @@
 "use client";
 
 
-import { headerLinks } from "@/constant";
+import { NavItemsProps, headerLinks } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const NavItems = () => {
+const NavItems = ({ closeSheet }: NavItemsProps) => {
   const pathname = usePathname();
 
   return (
@@ -20,6 +20,7 @@ const NavItems = () => {
             className={`${
               isActive && "text-primary-500 "
             } flex-center p-medium-16 whitespace-nowrap`}
+            onClick={closeSheet} // Add onClick to close the sheet
           >
             <Link href={link.route}>{link.label}</Link>
           </li>

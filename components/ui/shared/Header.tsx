@@ -4,9 +4,10 @@ import Link from "next/link";
 import { Button } from "../button"; 
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
+import { NavItemsProps } from "@/constant";
 
 
-const Header = () => {
+const Header = ({ closeSheet }: NavItemsProps) => {
   return (
     <div className="border-b w-full">
       {/* Border bottom for styling */}
@@ -23,7 +24,7 @@ const Header = () => {
         </Link>
         <SignedIn>
           <nav className="md:flex-between hidden w-full max-w-xs">
-            <NavItems />
+            <NavItems closeSheet={closeSheet} />
           </nav>
         </SignedIn>
 

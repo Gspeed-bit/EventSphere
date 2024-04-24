@@ -25,3 +25,9 @@ export const eventDefaultValues = {
   isFree: false,
   url: "",
 };
+
+//header
+
+ export type NavItemsProps = {
+  closeSheet: () => void; // Define the prop type here
+};

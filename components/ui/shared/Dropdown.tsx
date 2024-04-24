@@ -89,7 +89,7 @@ const Dropdown = ({ onChangeHandler, value }: DropDownProps) => {
                     type="text"
                     placeholder="Add Category"
                     className="input-field"
-                    onChange={(e) => setNewCategory(e.target.value)}
+                    onChange={(e) => {e.preventDefault();setNewCategory(e.target.value)}}
                   />
                 </AlertDialogDescription>
               </AlertDialogHeader>
