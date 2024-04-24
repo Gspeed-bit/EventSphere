@@ -1,11 +1,22 @@
 import { Button } from "@/components/ui/button";
 import CategoryFilter from "@/components/ui/shared/CategoryFilter";
+import Collection from "@/components/ui/shared/Collection";
 import Search from "@/components/ui/shared/Search";
+import { getAllEvents } from "@/lib/actions/event.actions";
+
 
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+const events = await getAllEvents({
+  query:"",
+  category:"",
+  page:1,
+  limit:6
+})
+console.log(events)
+
   return (
     <>
       <div className=" bg-dotted-pattern bg-primary-50 px-5 py-5 ">
@@ -32,13 +43,24 @@ export default function Home() {
           />
         </section>
       </div>
-      <section id="events" className="wrapper">
-        <h1 className=" p-bold-20 md:p-bold-24">
+      <section id="events" className="small-wrapper md:wrapper ">
+        <h1 className=" p-bold-20 md:p-bold-24 md:px-0">
           Trusted by <br /> Thousands of Events Worldwide
         </h1>
-        <div className="flex-between w-full flex gap-8 flex-sm md:flex-row ">
+        <div className="flex-between w-full flex gap-2 flex-sm md:flex-row ">
           <Search />
           <CategoryFilter />
+        </div>
+        <div className="small-wrapper text-center  md:max-w-lg">
+          <Collection
+            data={events?.data}
+            emptyTitle="No Events Found"
+            emptyStateSubtext="Come back later"
+            collectionType="All_Events"
+            limit={6}
+            page={1}
+            totalPages={2}
+          />
         </div>
       </section>
     </>

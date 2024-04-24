@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const EventDetails = async ({ params: { id } }: SearchParamProps) => {
   const event = await getEventById(id);
-  console.log(event);
+
   const {
     _id,
     title,

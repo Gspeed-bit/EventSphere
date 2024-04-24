@@ -1,6 +1,6 @@
 "use server";
 
-import { CreateEventParams } from "@/types";
+import { CreateEventParams, GetAllEventsParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
@@ -56,7 +56,7 @@ export async function getEventById(eventId: string) {
     await connectToDatabase();
 
     //so wraping the populateEvent around the Event
-    // will give us access to the param of the category 
+    // will give us access to the param of the category
     //and oragnizer and not the Id
     const event = await populateEvent(Event.findById(eventId));
 
@@ -64,6 +64,35 @@ export async function getEventById(eventId: string) {
       throw new Error("No such event exists");
     }
     return JSON.parse(JSON.stringify(event));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+//this was created to get all event
+
+export async function getAllEvents({
+  query,
+  limit,
+  category,
+  page,
+}: GetAllEventsParams) {
+  try {
+    await connectToDatabase();
+
+    const conditions = {};
+
+    const eventsQuery = Event.find(conditions)
+      .sort({ createdAt: "desc" })
+      .skip(0)
+      .limit(limit);
+
+      const events = await populateEvent(eventsQuery);
+      const eventsCount = await Event.countDocuments(conditions);
+    return {
+      data:JSON.parse(JSON.stringify(events)),
+      totalPages:Math.ceil(eventsCount/limit),
+    };
   } catch (error) {
     handleError(error);
   }
