@@ -29,13 +29,13 @@ const Collection = ({
   return (
     <>
       {data.length > 0 ? (
-        <div className=" bg-grey-100 small-wrapper md:wrapper">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5  ">
+        <div className=" small-wrapper md:wrapper  ">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3  ">
             {data.map((event) => {
               const hasOrderLink = collectionType === "Event_Organized";
               const hidePrice = collectionType === "My_Tickets";
               return (
-                <li className="border border-red-700 flex-between bg-primary-50 rounded-xl ">
+                <li className=" ">
                   <Card
                     event={event}
                     hasOrderLink={hasOrderLink}

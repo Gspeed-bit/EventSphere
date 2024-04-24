@@ -45,7 +45,7 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
                   className="text-coral-500  
                 p-semibold-18"
                 >
-                  €{price}
+                  {isFree ? "Free" : `€${price}`}
                 </p>
               </div>
               {/* Category Name */}
