@@ -15,8 +15,8 @@ const Header = () => {
         {/* Link to home page with logo */}
         <Link href="/" className="">
           <Image
-            src="/assets/images/logo.svg" // Logo image source
-            width={130} // Logo image width
+            src="/assets/images/loogo.svg" // Logo image source
+            width={120} // Logo image width
             height={30} // Logo image height
             alt="logo" // Alt text for logo
           />
