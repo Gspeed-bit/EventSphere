@@ -26,7 +26,7 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
   } = event;
   return (
     <section className="flex items-center justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl place-items-center">
         <Image
           src={imageUrl} // Logo image source
           width={1000} // Logo image width

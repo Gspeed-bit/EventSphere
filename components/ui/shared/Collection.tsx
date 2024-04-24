@@ -30,7 +30,7 @@ const Collection = ({
     <>
       {data.length > 0 ? (
         <div className=" small-wrapper md:wrapper  ">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3  ">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3  ">
             {data.map((event) => {
               const hasOrderLink = collectionType === "Event_Organized";
               const hidePrice = collectionType === "My_Tickets";
