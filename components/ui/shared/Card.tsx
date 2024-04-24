@@ -8,7 +8,7 @@ type cardProps = {
 
 
 const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
-  return <div className="text-justify">
+  return <div className="small-wrapper md:wrapper">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione veniam ex, repudiandae ab iusto nemo voluptas minus </p>
   </div>;
 };
