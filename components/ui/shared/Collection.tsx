@@ -47,7 +47,7 @@ const Collection = ({
           </ul>
         </div>
       ) : (
-        <div className="bg-grey-100 rounded-xl grid grid-col-1 p-10 ">
+        <div className="bg-grey-100 rounded-xl md:rounded-none grid grid-col-1 p-10 ">
           <div className=" flex-col flex-center md:p-7 ">
             <h3 className="p-bold-24 md:h3-bold">{emptyTitle}</h3>
             <h4 className="p-medium-18 md:p-medium-20">{emptyStateSubtext}</h4>

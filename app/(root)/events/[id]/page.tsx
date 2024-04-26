@@ -139,7 +139,7 @@ const EventDetails = async ({
             emptyTitle="No Events Found"
             emptyStateSubtext="Come back later"
             collectionType="All_Events"
-            limit={6}
+            limit={8}
             page={1}
             totalPages={2}
           />
