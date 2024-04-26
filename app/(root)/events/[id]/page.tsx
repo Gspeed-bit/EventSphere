@@ -1,13 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { getEventById } from "@/lib/actions/event.actions";
+import Collection from "@/components/ui/shared/Collection";
+import { getEventById, getRelatedEventsByCategory } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const EventDetails = async ({ params: { id } }: SearchParamProps) => {
+const EventDetails = async ({
+  params: { id },
+  searchParams,
+}: SearchParamProps) => {
   const event = await getEventById(id);
 
+  // related event from the same category
+
+  const relatedEvents = await getRelatedEventsByCategory({
+    categoryId: event.category._id,
+    eventId: event._id,
+    page: searchParams.page as string,
+  });
+
+  
   const {
     _id,
     title,
@@ -117,8 +130,20 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
           </div>
         </div>
       </section>
+      {/* Related Event from the same category */}
       <div className="m-3 p-3">
         <h1 className="p-bold-24 my-3 capitalize">Related Event</h1>
+        <div className="small-wrapper md:wrapper text-center  md:max-w-lg">
+          <Collection
+            data={relatedEvents?.data}
+            emptyTitle="No Events Found"
+            emptyStateSubtext="Come back later"
+            collectionType="All_Events"
+            limit={6}
+            page={1}
+            totalPages={2}
+          />
+        </div>
       </div>
     </div>
   );
