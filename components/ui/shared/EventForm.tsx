@@ -25,7 +25,7 @@ import Image from "next/image";
 import { Loader2 } from "lucide-react";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useRouter } from "next/navigation";
-import { createEvent } from "@/lib/actions/event.actions";
+import { createEvent, updateEvent } from "@/lib/actions/event.actions";
 import { IEvent } from "@/lib/database/models/event.model";
 
 // Define type for EventFormProps
@@ -39,9 +39,16 @@ type EventFormProps = {
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   // State for file uploader
   const [files, setFiles] = useState<File[]>([]);
-  
-  // Initial form values but if event is present then use event values else use default values
-  const initialValues = event && type === "Update" ? event : eventDefaultValues;
+
+  // Initial form values but if event is present then use event values else use default values and also the time will change
+  const initialValues =
+    event && type === "Update"
+      ? {
+          ...event,
+          startDateTime: new Date(event.startDateTime),
+          endDateTime: new Date(event.endDateTime),
+        }
+      : eventDefaultValues;
 
   const router = useRouter();
 
@@ -74,9 +81,31 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           path: "/profile",
         });
 
-        if(newEvent) {
+        if (newEvent) {
           form.reset();
           router.push(`/events/${newEvent._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (type === "Update") {
+      if(!eventId){
+         router.back();
+         return;
+      }
+
+      try {
+        const updatedEvent = await updateEvent({
+          event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+          userId,
+          path: "/events/${eventId}",
+        });
+
+        if (updatedEvent) {
+          form.reset();
+          router.push(`/events/${updatedEvent._id}`);
         }
       } catch (error) {
         console.log(error);
