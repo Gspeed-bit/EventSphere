@@ -36,11 +36,12 @@ type EventFormProps = {
   eventId?: string;
 };
 
-const EventForm = ({ userId, type }: EventFormProps) => {
+const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   // State for file uploader
   const [files, setFiles] = useState<File[]>([]);
-  // Initial form values
-  const initialValues = eventDefaultValues;
+  
+  // Initial form values but if event is present then use event values else use default values
+  const initialValues = event && type === "Update" ? event : eventDefaultValues;
 
   const router = useRouter();
 
