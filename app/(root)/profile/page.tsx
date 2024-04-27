@@ -57,7 +57,7 @@ const profilePage = async () => {
             asChild
             className="capitalize hidden sm:inline-block rounded-full"
           >
-            <Link href="/#events">Create New Event</Link>
+            <Link href="/events/create">Create New Event</Link>
           </Button>
         </div>
       </section>

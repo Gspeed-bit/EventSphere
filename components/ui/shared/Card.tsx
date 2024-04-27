@@ -39,7 +39,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
           <DeleteConfirmation eventId={event._id} />
         </div>
       )}
-      <div >
+      <div>
         <section className=" w-full text-start px-2  ">
           <div className="p-1 m-1 space-y-1 ">
             <div className="flex space-x-3">
@@ -64,32 +64,33 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
             {/* Title */}
             <Link href={`/events/${event._id}`}>
               <h1 className="p-medium-14 pb-3 capitalize">{event.title}</h1>
-            </Link>
-            {/* Date and Time */}
-            <p className="space-x-1 p-medium-12 text-grey-500 ">
-              <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
-              {`,`}
-              <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
-            </p>
 
-            <div className="flex items-center justify-between w-full  gap-3">
-              {/* Organizer Name */}
-              <p className="capitalize text-primary p-medium-12 py-2  ">
-                {event.organizer.firstName} | {event.organizer.lastName}
+              {/* Date and Time */}
+              <p className="space-x-1 p-medium-12 text-grey-500 ">
+                <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
+                {`,`}
+                <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
               </p>
-              {hasOrderLink && (
-                <div className="flex gap-2 items-center ">
-                  <p className="p-medium-12"> order details</p>
-                  <Image
-                    src="/assets/icons/arrow.svg"
-                    alt="search"
-                    width={11}
-                    height={11}
-                    className="cursor-pointer"
-                  />
-                </div>
-              )}
-            </div>
+
+              <div className="flex items-center justify-between w-full  gap-3">
+                {/* Organizer Name */}
+                <p className="capitalize text-primary p-medium-12 py-2  ">
+                  {event.organizer.firstName} | {event.organizer.lastName}
+                </p>
+                {hasOrderLink && (
+                  <div className="flex gap-2 items-center ">
+                    <p className="p-medium-12"> order details</p>
+                    <Image
+                      src="/assets/icons/arrow.svg"
+                      alt="search"
+                      width={11}
+                      height={11}
+                      className="cursor-pointer"
+                    />
+                  </div>
+                )}
+              </div>
+            </Link>
           </div>
         </section>
       </div>
