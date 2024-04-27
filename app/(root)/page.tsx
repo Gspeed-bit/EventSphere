@@ -13,7 +13,7 @@ const events = await getAllEvents({
   query:"",
   category:"",
   page:1,
-  limit:6
+  limit:8
 })
 console.log(events)
 
@@ -57,7 +57,7 @@ console.log(events)
             emptyTitle="No Events Found"
             emptyStateSubtext="Come back later"
             collectionType="All_Events"
-            limit={6}
+            limit={8}
             page={1}
             totalPages={2}
           />
