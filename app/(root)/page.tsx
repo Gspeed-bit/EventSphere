@@ -19,7 +19,7 @@ const events = await getAllEvents({
   query: searchText,
   category,
   page,
-  limit: 12,
+  limit: 8,
 });
 
   return (
@@ -63,8 +63,8 @@ const events = await getAllEvents({
             emptyStateSubtext="Come back later"
             collectionType="All_Events"
             limit={8}
-            page={1}
-            totalPages={2}
+            page={page}
+            totalPages={events?.totalPages}
           />
         </div>
       </section>

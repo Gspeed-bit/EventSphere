@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { formUrlQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "../button";
@@ -27,7 +27,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="my-5 flex-center gap-4">
       <Button
         size="lg"
         variant="outline"
