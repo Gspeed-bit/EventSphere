@@ -50,10 +50,10 @@ const CategoryFilter = () => {
 
   return (
     <Select onValueChange={(value: string) => onSelectCategory(value)}>
-      <SelectTrigger className="select-field">
+      <SelectTrigger className="select-field ">
         <SelectValue placeholder="Category" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="bg-primary-50">
         <SelectItem value="All" className="select-item p-regular-14">
           All
         </SelectItem>
@@ -62,7 +62,7 @@ const CategoryFilter = () => {
           <SelectItem
             value={category.name}
             key={category._id}
-            className="select-item p-regular-14"
+            className="select-item bg-primary-50 p-regular-14"
           >
             {category.name}
           </SelectItem>

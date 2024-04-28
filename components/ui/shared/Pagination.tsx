@@ -29,18 +29,18 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
   return (
     <div className="my-5 flex-center gap-4">
       <Button
-        size="lg"
+        size="sm"
         variant="outline"
-        className="w-28"
+        className="w-28 bg-primary-500 text-white"
         onClick={() => onClick("prev")}
         disabled={Number(page) <= 1}
       >
         Previous
       </Button>
       <Button
-        size="lg"
+        size="sm"
         variant="outline"
-        className="w-28"
+        className="w-28 bg-primary-500 text-white"
         onClick={() => onClick("next")}
         disabled={Number(page) >= totalPages}
       >
