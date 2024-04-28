@@ -43,13 +43,13 @@ const events = await getAllEvents({
         </section>
       </div>
       <section id="events" className="small-wrapper md:wrapper ">
-        <h1 className=" p-bold-20 md:p-bold-24 px-5 md:px-0">
+        <h1 className=" p-bold-20 md:h5-bold px-5 md:px-0">
           Trusted by <br /> Thousands of Events Worldwide
         </h1>
-        {/* <div className="flex-between w-full flex gap-2 flex-sm md:flex-row ">
+        <div className="flex-between mt-4 w-full flex gap-2 flex-sm md:flex-row ">
           <Search />
           <CategoryFilter />
-        </div> */}
+        </div>
         <div className="small-wrapper md:wrapper text-center  md:max-w-lg">
           <Collection
             data={events?.data}

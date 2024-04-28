@@ -55,10 +55,12 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
                 </div>
               )}
               {/* Category Name */}
-              <div className=" bg-primary-50 max-w-fit rounded-xl my-3 p-2">
-                <p className="text-primary-600 p-medium-12 capitalize px-2">
-                  {event.category.name}
-                </p>
+              <div className="">
+                {event.category.name ? (
+                  <p className="text-primary-600 max-w-fit  my-3 p-2 bg-primary-50 rounded-xl p-medium-12 capitalize px-2">
+                    {event.category.name}
+                  </p>
+                ) : null}
               </div>
             </div>
             {/* Title */}
