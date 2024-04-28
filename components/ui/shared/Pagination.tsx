@@ -1,3 +1,4 @@
+"use client"
 import { formUrlQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "../button";
