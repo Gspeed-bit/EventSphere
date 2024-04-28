@@ -1,6 +1,7 @@
 import { IEvent } from "@/lib/database/models/event.model";
 import { Divide } from "lucide-react";
 import Card from "./Card";
+import Pagination from "./Pagination";
 
 type collectionProps = {
   data: IEvent[];
@@ -45,6 +46,14 @@ const Collection = ({
               );
             })}
           </ul>
+          {totalPages > 1 && (
+            <Pagination
+              urlParamName={urlParamName}
+              limit={limit}
+              page={page}
+              totalPages={totalPages}
+            />
+          )}
         </div>
       ) : (
         <div className="bg-grey-100 rounded-xl md:rounded-none grid grid-col-1 p-10 ">
