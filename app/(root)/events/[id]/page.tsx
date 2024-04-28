@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import CheckoutButton from "@/components/ui/shared/CheckoutButton";
+
 import Collection from "@/components/ui/shared/Collection";
 import { getEventById, getRelatedEventsByCategory } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
@@ -76,9 +78,10 @@ const EventDetails = async ({
                   <span className="capitalize text-primary p-medium-14">{`${organizer.firstName} | ${organizer.lastName}`}</span>
                 </p>
               </div>
+
               {/* Buy Ticket Button */}
               <div className="">
-                <Button className=" my-3 rounded-full">Buy Ticket</Button>
+                <CheckoutButton event={event} />
               </div>
               {/* Date and Time */}
               <div className="flex items-center space-x-3 ">

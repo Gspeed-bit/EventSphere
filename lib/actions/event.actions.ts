@@ -76,9 +76,10 @@ export async function getAllEvents({
   query,
   limit,
   category,
-  page,
+  page, 
 }: GetAllEventsParams) {
   try {
+    // conecting to the database
     await connectToDatabase();
 
     const conditions = {};

@@ -15,7 +15,6 @@ const events = await getAllEvents({
   page:1,
   limit:8
 })
-console.log(events)
 
   return (
     <>

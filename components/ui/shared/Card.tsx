@@ -64,33 +64,35 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
             {/* Title */}
             <Link href={`/events/${event._id}`}>
               <h1 className="p-medium-14 pb-3 capitalize">{event.title}</h1>
-
-              {/* Date and Time */}
-              <p className="space-x-1 p-medium-12 text-grey-500 ">
-                <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
-                {`,`}
-                <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
-              </p>
-
-              <div className="flex items-center justify-between w-full  gap-3">
-                {/* Organizer Name */}
-                <p className="capitalize text-primary p-medium-12 py-2  ">
-                  {event.organizer.firstName} | {event.organizer.lastName}
-                </p>
-                {hasOrderLink && (
-                  <div className="flex gap-2 items-center ">
-                    <p className="p-medium-12"> order details</p>
-                    <Image
-                      src="/assets/icons/arrow.svg"
-                      alt="search"
-                      width={11}
-                      height={11}
-                      className="cursor-pointer"
-                    />
-                  </div>
-                )}
-              </div>
             </Link>
+            {/* Date and Time */}
+            <p className="space-x-1 p-medium-12 text-grey-500 ">
+              <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
+              {`,`}
+              <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
+            </p>
+
+            <div className="flex items-center justify-between w-full  gap-3">
+              {/* Organizer Name */}
+              <p className="capitalize text-primary p-medium-12 py-2  ">
+                {event.organizer.firstName} | {event.organizer.lastName}
+              </p>
+              {hasOrderLink && (
+                <Link
+                  href={`/orders?eventId=${event._id}`}
+                  className="flex gap-2 items-center "
+                >
+                  <p className="p-medium-12"> order details</p>
+                  <Image
+                    src="/assets/icons/arrow.svg"
+                    alt="search"
+                    width={11}
+                    height={11}
+                    className="cursor-pointer"
+                  />
+                </Link>
+              )}
+            </div>
           </div>
         </section>
       </div>
