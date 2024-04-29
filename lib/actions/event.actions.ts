@@ -154,7 +154,7 @@ export async function updateEvent({ userId, event, path }: UpdateEventParams) {
 export async function getRelatedEventsByCategory({
   categoryId,
   eventId,
-  limit = 3,
+  limit = 4,
   page = 1,
 }: GetRelatedEventsByCategoryParams) {
   try {

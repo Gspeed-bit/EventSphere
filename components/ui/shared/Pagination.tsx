@@ -5,7 +5,6 @@ import { Button } from "../button";
 
 type PaginationProps = {
   urlParamName?: string;
-  limit: number;
   page: number | string;
   totalPages: number;
 };
