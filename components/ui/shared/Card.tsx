@@ -42,37 +42,42 @@ const Card = ({ event, hasOrderLink, hidePrice }: cardProps) => {
       <div>
         <section className=" w-full text-start px-2  ">
           <div className="p-1 m-1 space-y-1 ">
-            <div className="flex space-x-3">
-              {/* pricing */}
-              {!hidePrice && (
-                <div className=" bg-coral-100 w-12 rounded-xl my-3 p-2">
-                  <p
-                    className="text-coral-500  
+            <Link href={`/events/${event._id}`}>
+              <div className="flex space-x-3">
+                {/* pricing */}
+                {!hidePrice && (
+                  <div className=" bg-coral-100 w-12 rounded-xl my-3 p-2">
+                    <p
+                      className="text-coral-500  
                   p-medium-12 text-center"
-                  >
-                    {event.isFree ? "Free" : `€${event.price}`}
-                  </p>
+                    >
+                      {event.isFree ? "Free" : `€${event.price}`}
+                    </p>
+                  </div>
+                )}
+                {/* Category Name */}
+                <div className="">
+                  {event.category.name ? (
+                    <p className="text-primary-600 max-w-fit  my-3 p-2 bg-primary-50 rounded-xl p-medium-12 capitalize px-2">
+                      {event.category.name}
+                    </p>
+                  ) : null}
                 </div>
-              )}
-              {/* Category Name */}
-              <div className="">
-                {event.category.name ? (
-                  <p className="text-primary-600 max-w-fit  my-3 p-2 bg-primary-50 rounded-xl p-medium-12 capitalize px-2">
-                    {event.category.name}
-                  </p>
-                ) : null}
               </div>
-            </div>
+            </Link>
+
             {/* Title */}
             <Link href={`/events/${event._id}`}>
               <h1 className="p-medium-14 pb-3 capitalize">{event.title}</h1>
             </Link>
             {/* Date and Time */}
-            <p className="space-x-1 p-medium-12 text-grey-500 ">
-              <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
-              {`,`}
-              <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
-            </p>
+            <Link href={`/events/${event._id}`}>
+              <p className="space-x-1 p-medium-12 text-grey-500 ">
+                <span>{`${formatDateTime(event.startDateTime).dateOnly}`}</span>
+                {`,`}
+                <span>{`${formatDateTime(event.startDateTime).timeOnly}`}</span>
+              </p>
+            </Link>
 
             <div className="flex items-center justify-between w-full  gap-3">
               {/* Organizer Name */}

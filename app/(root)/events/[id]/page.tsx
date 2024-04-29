@@ -135,16 +135,16 @@ const EventDetails = async ({
       </section>
       {/* Related Event from the same category */}
       <div className="m-3 p-3">
-        <h1 className="p-bold-24 my-3 capitalize">Related Event</h1>
+        <h1 className=" wrapper p-bold-24 my-3 capitalize">Related Event</h1>
         <div className="small-wrapper md:wrapper text-center  md:max-w-lg">
           <Collection
             data={relatedEvents?.data}
             emptyTitle="No Events Found"
             emptyStateSubtext="Come back later"
             collectionType="All_Events"
-            limit={8}
-            page={1}
-            totalPages={2}
+            limit={3}
+            page={searchParams.page as string}
+            totalPages={relatedEvents?.totalPages}
           />
         </div>
       </div>
