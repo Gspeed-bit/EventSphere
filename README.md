@@ -33,3 +33,5 @@ The Next.js 14-powered events application serves as a comprehensive platform for
 And many more features, including code architecture and reusability.
 
 This app stands as a versatile solution for event management needs, offering a user-friendly interface and robust functionality.
+<img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design5.png">
+<img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design6.png">
