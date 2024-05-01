@@ -2,8 +2,7 @@ Introducing a Full Stack Next 14 Events App
 
 
 
-
-![Uploading Screenshot 2024-05-01 at 16.37.29.png…]()
+<img width="964" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design1.png">
 
 ⚙️ Tech Stack:
 - Node.js
