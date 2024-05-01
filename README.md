@@ -3,6 +3,7 @@ Introducing a Full Stack Next 14 Events App
 
 
 <img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design1.png">
+<img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design2.png">
 
 ⚙️ Tech Stack:
 - Node.js
@@ -15,6 +16,8 @@ Introducing a Full Stack Next 14 Events App
 - Shadcn
 - uploadthing
 
+<img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design3.png">
+<img width="504" alt="homepage" src="https://github.com/Gspeed-bit/EventSphere/blob/main/public/assets/images/design4.png">
 The Next.js 14-powered events application serves as a comprehensive platform for managing events, offering seamless payment processing through Stripe and empowering users to purchase tickets and organize their own events.
 
 🔋 Features include:
